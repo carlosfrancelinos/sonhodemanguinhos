@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sonho de Manguinhos | Casa de Temporada</title>
+  <meta name="description" content="Sonho de Manguinhos: casa de temporada em São José da Coroa Grande - PE. Piscina, conforto e tranquilidade pertinho da praia." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a30;
+      --muted:#b9c2d3;
+      --text:#eef2ff;
+      --accent:#22c55e;
+      --accent2:#38bdf8;
+      --border: rgba(255,255,255,.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 30% 0%, rgba(56,189,248,.18), transparent 50%),
+                  radial-gradient(1200px 800px at 80% 10%, rgba(34,197,94,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,.65);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
+    }
+    .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .nav-links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .nav-links a{
+      padding:8px 10px; border-radius:12px;
+      color:var(--muted);
+    }
+    .nav-links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      box-shadow: none;
+      transition: transform .08s ease, background .12s ease, border-color .12s ease;
+      font-weight:650;
+    }
+    .btn:hover{transform:translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.18)}
+    .btn-primary{
+      background: linear-gradient(90deg, rgba(34,197,94,.95), rgba(56,189,248,.85));
+      border-color: transparent;
+      color:#06101c;
+    }
+    .btn-primary:hover{filter:brightness(1.02)}
+    .hero{
+      position:relative;
+      margin:18px auto 0;
+      border-radius: calc(var(--radius) + 6px);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border:1px solid var(--border);
+      min-height: 62vh;
+      display:flex;
+      align-items:flex-end;
+      background:#111;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.82) 100%),
+        url("piscina-hero.jpg") center/cover no-repeat;
+      transform: scale(1.02);
+    }
+    .hero-content{
+      position:relative;
+      padding: 34px 22px 24px;
+      width:100%;
+    }
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size:.92rem;
+    }
+    .h1{
+      margin:14px 0 8px;
+      font-size: clamp(2.0rem, 4.4vw, 3.2rem);
+      line-height:1.05;
+      letter-spacing:-.5px;
+      font-weight: 820;
+    }
+    .subtitle{max-width: 60ch; color: rgba(238,242,255,.88); font-size:1.05rem}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .grid{
+      display:grid;
+      gap:14px;
+    }
+    section{padding:30px 0}
+    .section-title{
+      font-size: 1.45rem; letter-spacing:-.2px; margin:0 0 12px;
+    }
+    .card{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.22);
+    }
+    .features{
+      grid-template-columns: repeat(5, minmax(0,1fr));
+    }
+    .feat{
+      display:flex; flex-direction:column; gap:8px;
+      padding:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 16px;
+      min-height: 108px;
+    }
+    .feat strong{font-size: .98rem}
+    .feat span{color: var(--muted); font-size:.92rem}
+    .icon{
+      width:38px; height:38px; border-radius:14px;
+      display:grid; place-items:center;
+      background: rgba(56,189,248,.14);
+      border: 1px solid rgba(56,189,248,.25);
+      font-size: 18px;
+    }
+    .gallery{
+      grid-template-columns: repeat(6, minmax(0,1fr));
+    }
+    .shot{
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+      aspect-ratio: 1 / 1;
+    }
+    .shot img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      transition: transform .18s ease;
+    }
+    .shot:hover img{transform: scale(1.03)}
+    .booking{
+      grid-template-columns: repeat(4, minmax(0,1fr));
+    }
+    .platform{
+      display:flex; flex-direction:column; gap:10px;
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+    }
+    .platform small{color:var(--muted)}
+    .platform .btn{width:100%}
+    .map-wrap iframe{
+      width:100%; height: 380px;
+      border:0; border-radius: 16px;
+      box-shadow: 0 12px 34px rgba(0,0,0,.25);
+    }
+    .footer{
+      padding:18px 0 36px;
+      color: var(--muted);
+      text-align:center;
+      font-size:.92rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 980px){
+      .features{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .gallery{grid-template-columns: repeat(3, minmax(0,1fr))}
+      .booking{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .hero{min-height: 56vh}
+    }
+    @media (max-width: 560px){
+      .nav-links{display:none}
+      .gallery{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .booking{grid-template-columns: 1fr}
+      .hero-content{padding: 28px 16px 18px}
+    }
+	.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.galeria img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+	.airbnb-btn {
+    background-color: #ff5358; /* Cor principal Airbnb */
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  .airbnb-btn:hover {
+    background-color: #e00007; /* Cor ao passar o mouse */
+  }
+  .mapa {
+  margin: 20px auto;
+  max-width: 1000px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+}
+
+.mapa iframe {
+  width: 100%;
+  height: 380px;
+  border: 0;
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand">
+          <span class="dot" aria-hidden="true"></span>
+          <span>Sonho de Manguinhos</span>
+        </div>
+        <nav class="nav-links" aria-label="Navegação">
+          <a href="#sobre">Sobre</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#reservar">Reservar</a>
+          <a href="#localizacao">Localização</a>
+        </nav>
+        <a class="btn btn-primary" href="https://wa.me/55SEU_WHATSAPP?text=Ol%C3%A1!%20Quero%20reservar%20o%20Sonho%20de%20Manguinhos." target="_blank" rel="noopener">
+          💬 WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" aria-label="Apresentação">
+      <div class="hero-content">
+        <div class="pill">🏖️ São José da Coroa Grande – PE • Casa de temporada</div>
+        <h1 class="h1">Sua casa com piscina<br/>pertinho da praia.</h1>
+        <p class="subtitle">
+          Piscina, conforto e tranquilidade para curtir com família e amigos.
+          Reserve direto pelo WhatsApp ou pelas plataformas.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/55SEU_WHATSAPP?text=Ol%C3%A1!%20Tenho%20interesse%20em%20datas%20no%20Sonho%20de%20Manguinhos." target="_blank" rel="noopener">
+            ✅ Fale no WhatsApp
+          </a>
+          <a class="btn" href="#reservar">📅 Ver opções de reserva</a>
+          <a class="btn" href="#galeria">🖼️ Ver fotos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <h2 class="section-title">Sobre a casa</h2>
+      <div class="card">
+        <div class="grid features">
+          <div class="feat">
+            <div class="icon">🛏️</div>
+            <strong>2 quartos climatizados</strong>
+            <span>Conforto pra dormir bem</span>
+          </div>
+          <div class="feat">
+            <div class="icon">🏊</div>
+            <strong>Piscina privativa</strong>
+            <span>Perfeita pra relaxar</span>
+          </div>
+          <div class="feat">
+            <div class="icon">🍳</div>
+            <strong>Cozinha completa</strong>
+            <span>Utensílios e praticidade</span>
+          </div>
+          <div class="feat">
+            <div class="icon">📶</div>
+            <strong>Wi-Fi</strong>
+            <span>Pra trabalho ou lazer</span>
+          </div>
+          <div class="feat">
+            <div class="icon">🌊</div>
+            <strong>Pertinho da praia</strong>
+            <span>Fácil acesso ao mar</span>
+          </div>
+        </div>
+
+        <p style="margin:16px 0 0; color:var(--muted)">
+          <strong style="color:var(--text)">Dica:</strong> se você quiser, eu ajusto esse texto com
+          os detalhes reais (quantas camas, vagas, regras, pet, churrasqueira, etc.).
+        </p>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria">
+      <h2>Galeria</h2>
+      <div class="galeria">
+        <!-- Troque as imagens abaixo pelos seus arquivos -->
+        <img src="Area de Lazer 1.jpeg" alt="Área gourmet com churrasqueira"></a>
+        <img src="Area de Lazer 2.jpeg" alt="Cozinha externa e piscina"></a>
+        <img src="Psicina 5.jpeg" alt="Piscina com cascata"></a>
+        <img src="Psicina 8.jpeg" alt="Piscina à noite iluminada"></a>
+        <img src="Psicina 10.jpeg" alt="Piscina com coqueiros ao fundo"></a>
+        <img src="Terraço.jpeg" alt="Terraço com redes e mesas"></a>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section id="reservar">
+      <h2 class="section-title">Como reservar</h2>
+      <div class="grid booking">
+        <div class="platform">
+          <strong>Airbnb</strong>
+          <small>Pagamento pela plataforma</small>
+          <a class="airbnb-btn" href="https://www.airbnb.com.br/rooms/1517528854452264727" target="_blank" rel="noopener">Reservar no Airbnb</a>
+        </div>
+        <div class="platform">
+          <strong>Booking</strong>
+          <small>Pagamento pela plataforma</small>
+          <a class="btn" href="https://www.booking.com/hotel/br/casa-aconchegante-em-manguinhos.pt-br.html" target="_blank" rel="noopener">Reservar no Booking</a>
+        </div>
+        <div class="platform">
+          <strong>Vrbo</strong>
+          <small>Pagamento pela plataforma</small>
+          <a class="btn" href="COLE_AQUI_SEU_LINK_DO_VRBO" target="_blank" rel="noopener">Reservar no Vrbo</a>
+        </div>
+        <div class="platform">
+          <strong>Direto no WhatsApp</strong>
+          <small>Resposta rápida</small>
+          <a class="btn btn-primary" href="https://wa.me/5581988585202" target="_blank" rel="noopener">
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO -->
+    <section id="localizacao">
+      <h2 class="section-title">Nossa localização</h2>
+	  <p>São José da Coroa Grande - Pernambuco</p>
+      <div class="mapa">
+        <!-- Substitua o src abaixo pelo iframe do Google Maps (Compartilhar > Incorporar um mapa) -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4060.137932764889!2d-35.15264278925743!3d-8.872057190903929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x700630027149f31%3A0x740aaa5ddb0385b!2sSonho%20de%20Manguinhos!5e1!3m2!1sen!2sbr!4v1769525304823!5m2!1sen!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn" href="https://maps.app.goo.gl/PpVx5MgiScUEjA2s5" target="_blank" rel="noopener">📍 Abrir no Google Maps</a>
+          <a class="btn btn-primary" href="https://wa.me/55SEU_WHATSAPP?text=Ol%C3%A1!%20Quero%20reservar%20o%20Sonho%20de%20Manguinhos.%20Quais%20datas%20est%C3%A3o%20livres%3F" target="_blank" rel="noopener">✅ Pedir disponibilidade</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © <span id="year"></span> Sonho de Manguinhos • São José da Coroa Grande – PE
+    </div>
+  </main>
+
+  <script>
+    // Ano automático no rodapé
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
