@@ -546,3 +546,49 @@ section{padding:34px 22px}
 @media (min-width: 992px){
     .gcal-wrapper{ padding-top: 55%; }
 }
+
+.sdm-cal { margin: 24px 0; }
+.sdm-cal__title { margin: 0 0 12px; }
+
+/* ✅ Responsivo (moderno) */
+.sdm-cal__wrap{
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.12);
+    box-shadow: 0 12px 30px rgba(0,0,0,.10);
+    background: #fff;
+
+    aspect-ratio: 4 / 5; /* celular: mais alto */
+}
+.sdm-cal__wrap iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* ✅ Desktop/tablet: mais “deitado” */
+@media (min-width: 992px){
+    .sdm-cal__wrap{
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* ✅ Fallback caso aspect-ratio não funcione */
+@supports not (aspect-ratio: 1 / 1){
+    .sdm-cal__wrap{
+        position: relative;
+        height: 0;
+        padding-top: 125%; /* 4/5 -> 125% (celular) */
+    }
+    @media (min-width: 992px){
+        .sdm-cal__wrap{ padding-top: 56.25%; } /* 16/9 */
+    }
+    .sdm-cal__wrap iframe{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
