@@ -592,3 +592,30 @@ section{padding:34px 22px}
         height: 100%;
     }
 }
+
+.btn-instagram-top{
+    position: fixed;
+    top: 16px;
+    right: 325px;
+    z-index: 9999;
+
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+
+    background: linear-gradient(
+            135deg,
+            #f09433,
+            #e6683c,
+            #dc2743,
+            #cc2366,
+            #bc1888
+    );
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(220,39,67,.35);
+}
+
+.btn-instagram-top:hover{
+    filter: brightness(1.05);
+}
